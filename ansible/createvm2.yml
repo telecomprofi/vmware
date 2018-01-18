@@ -1,0 +1,100 @@
+---
+- name: Creation VMs1
+  hosts: localhost
+  connection: local
+  
+  tasks:
+    - vsphere_guest:
+        validate_certs: false
+        vcenter_hostname: esxvc-ga-msdc01.ds.dtveng.net
+# Please use your login and password        
+        username: 
+        password: 
+        guest: Olehtestvm01
+        state: present
+        vm_extra_config:
+          notes: notes
+        vm_disk:
+          disk1:
+            size_gb: 25
+            type: thin
+            datastore: 7400-esxvrtdvi-msdc03
+        vm_nic:
+          nic1:
+            type: vmxnet3
+            network: dvS2-Dev-vlan74
+            network_type: standard
+        vm_hardware:
+          memory_mb: 1024
+          num_cpus: 1
+          osid: centos64Guest
+          scsi: paravirtual
+        esxi:
+          datacenter: MSDC
+          hostname: esxvrtdv-msdc34.ds.dtveng.net
+
+- name: Creation VMs2
+  hosts: localhost
+  connection: local
+  tasks:
+    - vsphere_guest:
+        validate_certs: false
+        vcenter_hostname: esxvc-ga-msdc01.ds.dtveng.net
+# Please use your login and password         
+        username: 
+        password: 
+        guest: Olehtestvm02
+        state: present
+        vm_extra_config:
+          notes: notes
+        vm_disk:
+          disk1:
+            size_gb: 25
+            type: thin
+            datastore: 7400-esxvrtdvi-msdc03
+        vm_nic:
+          nic1:
+            type: vmxnet3
+            network: dvS2-Dev-vlan74
+            network_type: standard
+        vm_hardware:
+          memory_mb: 1024
+          num_cpus: 1
+          osid: centos64Guest
+          scsi: paravirtual
+        esxi:
+          datacenter: MSDC
+          hostname: esxvrtdv-msdc34.ds.dtveng.net
+
+- name: Creation VMs3
+  hosts: localhost
+  connection: local
+  tasks:
+    - vsphere_guest:
+        validate_certs: false
+        vcenter_hostname: esxvc-ga-msdc01.ds.dtveng.net
+# Please use your login and password         
+        username: 
+        password: 
+        guest: Olehtestvm03
+        state: present
+        vm_extra_config:
+          notes: notes
+        vm_disk:
+          disk1:
+            size_gb: 25
+            type: thin
+            datastore: 7400-esxvrtdvi-msdc03
+        vm_nic:
+          nic1:
+            type: vmxnet3
+            network: dvS2-Dev-vlan74
+            network_type: standard
+        vm_hardware:
+          memory_mb: 1024
+          num_cpus: 1
+          osid: centos64Guest
+          scsi: paravirtual
+        esxi:
+          datacenter: MSDC
+          hostname: esxvrtdv-msdc34.ds.dtveng.net
